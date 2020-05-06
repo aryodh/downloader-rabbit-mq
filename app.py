@@ -32,7 +32,7 @@ def download_file(url, uniqueId):
     os.replace("./" + filename, "./storage/" + filename)
     
     global server
-    server.publish(payload="done http://152.118.148.95:20644/get_file/" + filename, routing_key=uniqueId)
+    server.publish(payload="done http://152.118.148.95:20648/get_file/" + filename, routing_key=uniqueId)
 
 
 @app.route('/get_file/<filename>')
@@ -63,5 +63,5 @@ class RabbitMq():
 if __name__ == '__main__':
     global server
     server = RabbitMq('upload')
-    app.run(host='0.0.0.0', port=20643)
+    app.run(host='0.0.0.0', port=20648)
 
